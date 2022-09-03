@@ -12,6 +12,7 @@ And there needs to be a simple search bar, and have tags attached to each idea. 
 * cards thumbnails
 * detailed view
 * infinite scroll
+* including subfolders as cards - ideally avoid heavy database with metadata and references, simply use a subfolder structure for ideas
 
 # Requirements
 * `Node.js` - https://nodejs.org/en/download/
