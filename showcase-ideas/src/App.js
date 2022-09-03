@@ -8,6 +8,12 @@ import Grid from './components/Grid';
 // help: [ https://create-react-app.dev/docs/adding-custom-environment-variables ] - perhaps use environment variables to define behaviour of application - like path to folder containing ideas
 
 function App() {
+  let cards = []
+  for(let i=0; i<5; i++) {
+    cards.push(<Card key={i} />)
+  }
+  console.log("App: " + cards)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -27,7 +33,9 @@ function App() {
         {/* help: [ https://reactjs.org/docs/components-and-props.html ] */}
         {/* <Card title="something" image="" url="" text="" tags=""/> */}
         {/* <Card/> */}
-        <Grid rows={3} cols={4} item={Card}></Grid>
+        {/* <Card /> */}
+        
+        <Grid cols={2} items={cards}></Grid>
         {/* todo: remember when card was clicked, display it underneath the card, perhaps change background based on how long ago link was clicked */}
       </header>
     </div>
