@@ -11,16 +11,17 @@ function App() {
 
   let cards = []
   for(let i=0; i<5; i++) {
-    let o1 = <Card key={i} title={"Something " + i}/> // IMPORTANT: need the raw data instead of <Card>
-    let o2 = Card({'key':i, 'title':"Something " + i})
-    cards.push(o1)
-    console.log(o1)
-    cards.push(o2)
-    console.log(o2)
+    cards.push({key:i, title:"Something " + i})
+    // let o1 = <Card key={i} title={"Something " + i}/> // IMPORTANT: need the raw data instead of <Card>
+    // let o2 = Card({'key':i, 'title':"Something " + i})
+    // cards.push(o1)
+    // console.log(o1)
+    // cards.push(o2)
+    // console.log(o2)
     // console.log(JSON.stringify(o1, null, 2)) // help: [ https://stackoverflow.com/questions/4816099/chrome-sendrequest-error-typeerror-converting-circular-structure-to-json ] - no longer works, need to figure out how to `flatten, replace, stringify` `.json`s
   }
   console.log("App " + cards) // note: why does this display twice
-  // console.log("App: " + JSON.stringify(cards, null, 2))
+  console.log("App: " + JSON.stringify(cards, null, 2))
 
   return (
     <div className="App">

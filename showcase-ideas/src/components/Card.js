@@ -12,7 +12,8 @@ const Card = (props) => {
 
     // constructor(props) {
         // super(props) // help: [ https://stackoverflow.com/questions/31067368/how-to-extend-a-class-without-having-to-use-super-in-es6 ]
-        console.log("card: " + this.props) // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
+        console.log("card: " + props) // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
+        console.log("card: " + JSON.stringify(props, null, 2))
         // this.state = {
         //     value: null,
         //   }
@@ -33,7 +34,7 @@ const Card = (props) => {
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
         return (
-          <Fragment><b>Hello {this.props.title}!</b></Fragment>
+          <Fragment><b>{"Hello " + props.title + "!"}</b></Fragment>
           // <Fragment>
           //   <Text>Hello, I am your cat!</Text>
           //   <div className="card">
