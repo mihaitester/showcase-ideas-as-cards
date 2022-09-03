@@ -1,4 +1,4 @@
-import React, { View, Image, Text, Fragment } from 'react';
+import React from 'react';
 
 // help: [ https://stackoverflow.com/questions/41064718/how-to-create-an-new-instance-of-an-object-in-react ] - precisely what is needed
 // help: [ https://create-react-app.dev/docs/importing-a-component/ ] - fix import
@@ -33,7 +33,7 @@ const Card = (props) => {
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
         return (
-          <Text>Hello !</Text>
+          <b>Hello !</b>
           // <Fragment>
           //   <Text>Hello, I am your cat!</Text>
           //   <div className="card">
@@ -52,5 +52,5 @@ const Card = (props) => {
       // }
 }
 
-// help: [ https://reactnative.dev/docs/intro-react ] - why getting error
+// help: [ https://reactnative.dev/docs/intro-react ] - why getting error, figured its because of using the <Text> component
 export default Card; // help: [ https://stackoverflow.com/questions/36426521/what-does-export-default-do-in-jsx ] - this should work, but getting "type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports."
