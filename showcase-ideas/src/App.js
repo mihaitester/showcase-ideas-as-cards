@@ -17,8 +17,8 @@ function App() {
 
   let cards = []
   for(let i=0; i<5; i++) {
-     // IMPORTANT: need the raw data instead of <Card /> rendering to be prop-drilled
-     card = {
+    // IMPORTANT: need the raw data instead of <Card /> rendering to be prop-drilled
+    let card = {
       key:i, 
       title:"Something " + i, 
       image:"", 
