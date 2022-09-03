@@ -8,6 +8,7 @@ import Grid from './components/Grid';
 // help: [ https://create-react-app.dev/docs/adding-custom-environment-variables ] - perhaps use environment variables to define behaviour of application - like path to folder containing ideas
 
 function App() {
+  
   let cards = []
   for(let i=0; i<5; i++) {
     cards.push(<Card key={i} />)

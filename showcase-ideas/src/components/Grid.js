@@ -30,23 +30,32 @@ import React from 'react';
 // help: [ https://snack.expo.dev/ ] - another example, but not what I need, I need dynamically controlled grids, not FLEX_BOXES that change depending on CSS attributes
 const Grid = (props) => {
     let AGrid = []
-    for(let i=0; i<props.items.length; i++) {
+    for(let i=0; i<props.items.length;) {
         let ARow = []
         for(let col = 0; col<props.cols; col++) {
             if (i < props.items.length) {
                 // help: [ https://bobbyhadz.com/blog/javascript-typeerror-push-is-not-a-function ] - push() requires an array parameter
                 // help: [ https://reactjs.org/docs/react-without-jsx.html ] - need to avoid jsx syntax when nesting multiple elements
-                ARow.push([React.createElement('td', null, `<{props.items.indexOf(i)} key={i}></{props.items.indexOf(i)}>`)])
+                let o1 = props.items[i]
+                console.log("o1: " + o1)
+                // console.log("o1: " + JSON.stringify(o1, null, 2))
+                let o2 = <o1 key={i} />
+                console.log("o2: " + o2)
+                // console.log("o2: " + JSON.stringify(o2, null, 2))
+                ARow += React.createElement('td', null, o2)
+                i ++;
             } else {
                 break
             }
         }
         AGrid.push(ARow)
-        console.log(ARow)
+        // help: [ https://stackoverflow.com/questions/30765163/pretty-printing-json-with-react ] - using JSON to print string objects
+        console.log("Row: " + JSON.stringify(ARow, null, 2))
     }
-    console.log(AGrid)
+    console.log("Grid: " + JSON.stringify(AGrid, null, 2))
+
     // return ("Grid")
-    return (<table><AGrid /></table>)
+    return (<table>{AGrid.map(t => <span>{t}</span>).reduce((prev, curr) => [prev, ', ', curr])}</table>)
 }
 
 export default Grid;
