@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import Card from './Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
+import useWindowDimensions from './useWindowDimensions';
 
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ] - need to nest multiple layers of code and html
 // help: [ https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg ]
@@ -23,18 +24,29 @@ const Grid = (props) => {
     // console.log("cards: " + JSON.stringify(cards, null, 2))
 
     // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
-    const render = cards.map((card, key) => (
-        key % props.cols === 0
-            ? <tr><td key={key}><Card {...card} /></td>
-            : key % props.cols === props.cols - 1
-                ? <td key={key}><Card {...card} /></td></tr>
-                : <td key={key}><Card {...card} /></td>
+    const render = cards.map( (card, key) => (
+        <div><Card key={key} {...card} /></div>
     ))
+        
+        // if(key % props.cols == 0) let o = (<tr><td key={key}><Card {...card} /></td>)
+        // key % props.cols == 0
+        //     ? <tr><td key={key}><Card {...card} /></td>
+        //     : key % props.cols == props.cols - 1
+        //         ? <td key={key}><Card {...card} /></td></tr>
+        //         : <td key={key}><Card {...card} /></td>
+        //     )
+        // )
+        // {
+    //         // (key % props.cols == 0) ? (<div><div key={key}><Card {...card} /></div>) : ((key % props.cols == props.cols - 1) ? (<div key={key}><Card {...card} /></div></div>) : (<div key={key}><Card {...card} /></div>))
+    //     }
+    // )
+    const { height, width } = useWindowDimensions();
     
     return (
-        <table>
-            <tbody>{render}</tbody>
-        </table>
+        // <table>
+        //     <tbody>{render}</tbody>
+        // </table>
+        <div style={{display: "grid", width:{width}, height:{height}}}>{render}</div>
     )
 }
 
