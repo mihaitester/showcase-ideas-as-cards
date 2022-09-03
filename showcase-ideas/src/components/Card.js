@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 // help: [ https://stackoverflow.com/questions/41064718/how-to-create-an-new-instance-of-an-object-in-react ] - precisely what is needed
 // help: [ https://create-react-app.dev/docs/importing-a-component/ ] - fix import
@@ -12,7 +12,7 @@ const Card = (props) => {
 
     // constructor(props) {
         // super(props) // help: [ https://stackoverflow.com/questions/31067368/how-to-extend-a-class-without-having-to-use-super-in-es6 ]
-        console.log(props) // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
+        console.log("card: " + this.props) // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
         // this.state = {
         //     value: null,
         //   }
@@ -33,7 +33,7 @@ const Card = (props) => {
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
         return (
-          <b>Hello !</b>
+          <Fragment><b>Hello {this.props.title}!</b></Fragment>
           // <Fragment>
           //   <Text>Hello, I am your cat!</Text>
           //   <div className="card">
