@@ -8,12 +8,15 @@ import Grid from './components/Grid';
 // help: [ https://create-react-app.dev/docs/adding-custom-environment-variables ] - perhaps use environment variables to define behaviour of application - like path to folder containing ideas
 
 function App() {
-  
+
   let cards = []
   for(let i=0; i<5; i++) {
-    cards.push(<Card key={i} />)
+    let o1 = <Card key={i} />
+    cards.push(o1)
+    console.log(JSON.stringify(o1, null, 2)) // help: [ https://stackoverflow.com/questions/4816099/chrome-sendrequest-error-typeerror-converting-circular-structure-to-json ] - no longer works, need to figure out how to `flatten, replace, stringify` `.json`s
   }
   console.log("App: " + cards)
+  console.log("App: " + JSON.stringify(cards, null, 2))
 
   return (
     <div className="App">

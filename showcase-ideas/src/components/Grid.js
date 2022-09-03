@@ -48,6 +48,7 @@ const Grid = (props) => {
                 break
             }
         }
+        // AGrid.push(ARow.map(t => <span>{t}</span>).reduce((prev, curr) => [prev, ', ', curr]))
         AGrid.push(ARow)
         // help: [ https://stackoverflow.com/questions/30765163/pretty-printing-json-with-react ] - using JSON to print string objects
         console.log("Row: " + JSON.stringify(ARow, null, 2))
