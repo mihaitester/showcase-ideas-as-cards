@@ -1,0 +1,1 @@
+cd showcase-ideas && npm run start
