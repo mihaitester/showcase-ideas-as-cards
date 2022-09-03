@@ -6,19 +6,29 @@ import Grid from './components/Grid';
 
 // help: [ https://react-bootstrap.github.io/components/cards/ ] - this is one the ways to present this idea, like `Magic the Gathering` cards
 // help: [ https://create-react-app.dev/docs/adding-custom-environment-variables ] - perhaps use environment variables to define behaviour of application - like path to folder containing ideas
+// help: [ https://stackoverflow.com/questions/4816099/chrome-sendrequest-error-typeerror-converting-circular-structure-to-json ] - no longer works, need to figure out how to `flatten, replace, stringify` `.json`s
+// help: [ https://reactjs.org/docs/components-and-props.html ]
+
+{/* todo: need a parsing method for the subfolder containing ideas, based on the values returned by that, populate a grid of cards  */}
+{/* todo: remember when card was clicked, display it underneath the card, perhaps change background based on how long ago link was clicked */}
+// todo: instead of using `console.log` need some debug method that unpacks objects and displays strings
 
 function App() {
 
   let cards = []
   for(let i=0; i<5; i++) {
-    cards.push({key:i, title:"Something " + i})
-    // let o1 = <Card key={i} title={"Something " + i}/> // IMPORTANT: need the raw data instead of <Card>
-    // let o2 = Card({'key':i, 'title':"Something " + i})
-    // cards.push(o1)
-    // console.log(o1)
-    // cards.push(o2)
-    // console.log(o2)
-    // console.log(JSON.stringify(o1, null, 2)) // help: [ https://stackoverflow.com/questions/4816099/chrome-sendrequest-error-typeerror-converting-circular-structure-to-json ] - no longer works, need to figure out how to `flatten, replace, stringify` `.json`s
+     // IMPORTANT: need the raw data instead of <Card /> rendering to be prop-drilled
+     card = {
+      key:i, 
+      title:"Something " + i, 
+      image:"", 
+      url:"", 
+      text:"", 
+      tags:""
+    }
+    cards.push(card) 
+    // console.log(card)
+    // console.log(JSON.stringify(card, null, 2)) 
   }
   console.log("App " + cards) // note: why does this display twice
   console.log("App: " + JSON.stringify(cards, null, 2))
@@ -38,14 +48,9 @@ function App() {
         >
           Learn React
         </a>
-        {/* todo: need a parsing method for the subfolder containing ideas, based on the values returned by that, populate a grid of cards  */}
-        {/* help: [ https://reactjs.org/docs/components-and-props.html ] */}
-        {/* <Card title="something" image="" url="" text="" tags=""/> */}
-        {/* <Card/> */}
-        {/* <Card /> */}
         
         <Grid cols={2} items={cards}></Grid>
-        {/* todo: remember when card was clicked, display it underneath the card, perhaps change background based on how long ago link was clicked */}
+        
       </header>
     </div>
   );
