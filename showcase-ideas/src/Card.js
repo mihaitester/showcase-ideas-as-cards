@@ -15,13 +15,17 @@ export default class Card extends React.Component {
         // todo: by default display `title` and `image`
         // todo: .onMouseHover() display the `text` in scrollable box
         // todo: .onMouseCick() open a new tab with the `url` displaying the object in detail
+
+        // help: [ https://www.digitalocean.com/community/tutorials/react-constructors-with-react-components ]
+        this.onClick = this.onClick.bind(this);
+        this.onHover = this.onHover.bind(this);
     }
 
     render() {
         return (
           <div className="card">
             <Image src="" />
-            <Text src="" />
+            <Text>Something</Text>
           </div>
         );
       }

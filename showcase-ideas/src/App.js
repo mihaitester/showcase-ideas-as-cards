@@ -22,7 +22,10 @@ function App() {
         >
           Learn React
         </a>
-        <Card />
+        {/* todo: need a parsing method for the subfolder containing ideas, based on the values returned by that, populate a grid of cards  */}
+        {/* help: [ https://reactjs.org/docs/components-and-props.html ] */}
+        <Card title="" image="" url="" text="" tags=""/>
+        {/* todo: remember when card was clicked, display it underneath the card, perhaps change background based on how long ago link was clicked */}
       </header>
     </div>
   );
