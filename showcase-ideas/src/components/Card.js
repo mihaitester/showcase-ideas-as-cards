@@ -52,5 +52,5 @@ const Card = (props) => {
       // }
 }
 
-// help: [ https://reactnative.dev/docs/intro-react ] - why getting error, figured its because of using the <Text> component
+// help: [ https://reactnative.dev/docs/intro-react ] - why getting error, figured its because of using the <Text>
 export default Card; // help: [ https://stackoverflow.com/questions/36426521/what-does-export-default-do-in-jsx ] - this should work, but getting "type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports."
