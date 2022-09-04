@@ -20,6 +20,7 @@ import useWindowDimensions from './useWindowDimensions';
 
 // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ]
+// help: [ https://www.robinwieruch.de/javascript-map-array/ ]
 const processCards = (cards, cols) => {
     let render = []
     for(let i=0; i<cards.length;) {
