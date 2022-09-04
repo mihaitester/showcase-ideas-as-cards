@@ -49,7 +49,7 @@ function App() {
           Learn React
         </a>
         
-        <Grid cols={2} items={cards}></Grid>
+        <Grid cols={3} items={cards}></Grid>
         
       </header>
     </div>

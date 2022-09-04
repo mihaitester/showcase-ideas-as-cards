@@ -17,32 +17,40 @@ import useWindowDimensions from './useWindowDimensions';
 // help: [ https://bobbyhadz.com/blog/javascript-typeerror-push-is-not-a-function ] - push() requires an array parameter
 // help: [ https://reactjs.org/docs/react-without-jsx.html ] - need to avoid jsx syntax when nesting multiple elements
 // help: [ https://stackoverflow.com/questions/30765163/pretty-printing-json-with-react ] - using JSON to print string objects
+
+// help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
+// help: [ https://reactjs.org/docs/jsx-in-depth.html ]
+const processCards = (cards, cols) => {
+    let render = []
+    for(let i=0; i<cards.length;) {
+        let row = []
+        for(let col=0; col<cols; col++) {
+            if(i<cards.length) {
+                row.push(<td key={i}><Card {...cards[i]} /></td>)
+                i++;
+            }
+            else {
+                row.push(<td></td>)
+            }
+        }
+        render.push(<tr>{row}</tr>)
+    }
+    return render
+}
+
 const Grid = (props) => {
 
     let cards = props.items
     // console.log("cards: " + cards)
     // console.log("cards: " + JSON.stringify(cards, null, 2))
-
-    // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
-    const render = cards.map( (card, key) => (
-        <div><Card key={key} {...card} /></div>
-        // if(key % props.cols == 0) let o = (<tr><td key={key}><Card {...card} /></td>)
-        // key % props.cols == 0
-        //     ? <tr><td key={key}><Card {...card} /></td>
-        //     : key % props.cols == props.cols - 1
-        //         ? <td key={key}><Card {...card} /></td></tr>
-        //         : <td key={key}><Card {...card} /></td>
-        //     )
-        // )
-    ))
     
     const { height, width } = useWindowDimensions();
     
     return (
-        // <table>
-        //     <tbody>{render}</tbody>
-        // </table>
-        <div style={{display: "inline", width:{width}, height:{height}}}>{render}</div>
+        <table>
+            <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols)}</div></tbody>
+        </table>
+        
     )
 }
 
