@@ -26,8 +26,6 @@ const Grid = (props) => {
     // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
     const render = cards.map( (card, key) => (
         <div><Card key={key} {...card} /></div>
-    ))
-        
         // if(key % props.cols == 0) let o = (<tr><td key={key}><Card {...card} /></td>)
         // key % props.cols == 0
         //     ? <tr><td key={key}><Card {...card} /></td>
@@ -36,17 +34,15 @@ const Grid = (props) => {
         //         : <td key={key}><Card {...card} /></td>
         //     )
         // )
-        // {
-    //         // (key % props.cols == 0) ? (<div><div key={key}><Card {...card} /></div>) : ((key % props.cols == props.cols - 1) ? (<div key={key}><Card {...card} /></div></div>) : (<div key={key}><Card {...card} /></div>))
-    //     }
-    // )
+    ))
+    
     const { height, width } = useWindowDimensions();
     
     return (
         // <table>
         //     <tbody>{render}</tbody>
         // </table>
-        <div style={{display: "grid", width:{width}, height:{height}}}>{render}</div>
+        <div style={{display: "inline", width:{width}, height:{height}}}>{render}</div>
     )
 }
 
