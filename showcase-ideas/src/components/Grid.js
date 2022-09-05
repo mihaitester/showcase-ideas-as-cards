@@ -23,6 +23,9 @@ import useWindowDimensions from '../hooks/useWindowDimensions';
 // help: [ https://www.robinwieruch.de/javascript-map-array/ ]
 const processCards = (cards, cols, height, width) => {
 
+    let cardSizeReducer = 0.9
+    let aspectRatio = 3/2
+
     let render = []
     let rows = (cards.length / cols) + 1
     console.log("rows: " + rows)
@@ -30,7 +33,11 @@ const processCards = (cards, cols, height, width) => {
         let row = []
         for(let col=0; col<cols; col++) {
             if(i<cards.length) {
-                row.push(<td><Card key={i} {...cards[i]} height={height/rows} maxHeight={0.9 * height/rows} width={width/cols} maxWidth={0.9* width/cols}/></td>)
+                // row.push(<td><Card key={i} {...cards[i]} height={height/rows} maxHeight={0.9 * height/rows} width={width/cols} maxWidth={0.9* width/cols}/></td>)
+                // todo: ideally get some calculation of the image, create cards that have a 2 * 3 aspect ratio
+                let h = aspectRatio * width/cols //height/rows > width/cols ? height/rows : width/cols
+                let mh = aspectRatio * cardSizeReducer * width/cols //height/rows > width/cols ? cardSizeReducer * height/rows : cardSizeReducer * width/cols
+                row.push(<td><Card key={i} {...cards[i]} height={h} maxHeight={mh} width={width/cols} maxWidth={cardSizeReducer * width/cols}/></td>)
                 i++;
             }
             else {
