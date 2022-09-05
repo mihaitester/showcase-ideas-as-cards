@@ -48,6 +48,7 @@ const Card = (props) => {
               {isShown && (
                 // todo: use some markdown processor and display the text like rendered instead of plain text
                 // todo: have some auto-scroll speed of the text
+                // help: [ https://randyperkins2k.medium.com/writing-a-simple-markdown-parser-using-javascript-1f2e9449a558 ] - how to parse markdown
                 <div className='text' style={{display: "hidden"}}>{props.text}</div>
               )}
             </div></Fragment>
