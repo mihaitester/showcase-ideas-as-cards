@@ -4,6 +4,7 @@ import './App.css';
 import Card from './components/Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
 import Grid from './components/Grid';
 
+import React, { useState } from 'react';
 // help: [ https://react-bootstrap.github.io/components/cards/ ] - this is one the ways to present this idea, like `Magic the Gathering` cards
 // help: [ https://create-react-app.dev/docs/adding-custom-environment-variables ] - perhaps use environment variables to define behaviour of application - like path to folder containing ideas
 // help: [ https://stackoverflow.com/questions/4816099/chrome-sendrequest-error-typeerror-converting-circular-structure-to-json ] - no longer works, need to figure out how to `flatten, replace, stringify` `.json`s
@@ -15,8 +16,16 @@ import Grid from './components/Grid';
 
 function App() {
 
+  // help: [ https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks ] - actual example of how to use new react features
+  const [gridCols, setGridCols] = useState(3);
+
+  console.log("gridCols: " + gridCols)
+
+  let cardsNumber = 7
+  let defaultCols = 3
+
   let cards = []
-  for(let i=0; i<5; i++) {
+  for(let i=0; i<cardsNumber; i++) {
     // IMPORTANT: need the raw data instead of <Card /> rendering to be prop-drilled
     let card = {
       key: i, 
@@ -36,6 +45,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      {/* help: [ https://reactjs.org/docs/forms.html ] */}
+      
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -48,9 +59,20 @@ function App() {
         >
           Learn React
         </a> */}
-        
-        <Grid cols={3} items={cards}></Grid>
-        
+      
+        <div>
+          {/* help: [ https://stackoverflow.com/questions/39297616/how-to-left-align-the-label-in-a-button ] */}
+          <div style={{textAlign: "left"}}>
+            <label>
+              Grid width in items:
+            </label>
+              {/* help: [ https://stackoverflow.com/questions/72630306/how-to-set-up-default-value-if-props-is-empty-using-reactjs ] - if putting input 0, then app breaks */}
+            <input type="text" name="gridCols" onChange={(e) => e.target.value > 0 ? setGridCols(e.target.value) : defaultCols}/>
+          </div>
+          <div>
+            <Grid cols={gridCols} items={cards}></Grid>
+          </div>
+        </div>  
       </header>
     </div>
   );
