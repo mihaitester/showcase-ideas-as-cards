@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 
 // help: [ https://stackoverflow.com/questions/41064718/how-to-create-an-new-instance-of-an-object-in-react ] - precisely what is needed
 // help: [ https://create-react-app.dev/docs/importing-a-component/ ] - fix import
@@ -9,6 +9,9 @@ import React, { Fragment } from 'react';
 
 // help: [ https://www.robinwieruch.de/react-function-component/#react-function-component-example ]
 const Card = (props) => {
+
+  // help: [ https://upmostly.com/tutorials/react-onhover-event-handling-with-examples ]
+  const [isShown, setIsShown] = useState(false);
 
     // constructor(props) {
         // super(props) // help: [ https://stackoverflow.com/questions/31067368/how-to-extend-a-class-without-having-to-use-super-in-es6 ]
@@ -33,8 +36,16 @@ const Card = (props) => {
 
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
+      console.log("height: " + props.height + " width: " + props.width)
         return (
-          <Fragment><b>{"Hello " + props.title + "!"}</b></Fragment>
+          <Fragment>
+            <div className='card' style={{padding: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+              <div className='title' style={{padding: "10px"}}><b>{props.title}</b></div>
+              <div className='image'><img src={props.image} /></div>
+              {isShown && (
+                <div className='text' style={{display: "hidden"}}>{props.text}</div>
+              )}
+            </div></Fragment>
           // <Fragment>
           //   <Text>Hello, I am your cat!</Text>
           //   <div className="card">

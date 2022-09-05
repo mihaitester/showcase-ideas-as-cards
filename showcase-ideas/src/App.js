@@ -23,7 +23,7 @@ function App() {
       title:"Something " + i, 
       image:"", 
       url:"", 
-      text:"", 
+      text:"Randomized text" + i, 
       tags:""
     }
     cards.push(card) 
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -47,7 +47,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
         
         <Grid cols={3} items={cards}></Grid>
         

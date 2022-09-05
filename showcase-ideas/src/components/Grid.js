@@ -21,13 +21,16 @@ import useWindowDimensions from './useWindowDimensions';
 // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ]
 // help: [ https://www.robinwieruch.de/javascript-map-array/ ]
-const processCards = (cards, cols) => {
+const processCards = (cards, cols, height, width) => {
+
     let render = []
+    let rows = (cards.length / cols) + 1
+    console.log("rows: " + rows)
     for(let i=0; i<cards.length;) {
         let row = []
         for(let col=0; col<cols; col++) {
             if(i<cards.length) {
-                row.push(<td key={i}><Card {...cards[i]} /></td>)
+                row.push(<td><Card key={i} {...cards[i]} height={height/rows} maxHeight={0.9 * height/rows} width={width/cols} maxWidth={0.9* width/cols}/></td>)
                 i++;
             }
             else {
@@ -44,12 +47,12 @@ const Grid = (props) => {
     let cards = props.items
     // console.log("cards: " + cards)
     // console.log("cards: " + JSON.stringify(cards, null, 2))
-    
+
     const { height, width } = useWindowDimensions();
     
     return (
         <table>
-            <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols)}</div></tbody>
+            <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols, height, width)}</div></tbody>
         </table>
         
     )
