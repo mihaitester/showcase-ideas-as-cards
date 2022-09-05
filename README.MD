@@ -14,6 +14,13 @@ And there needs to be a simple search bar, and have tags attached to each idea. 
 * infinite scroll
 * including subfolders as cards - ideally avoid heavy database with metadata and references, simply use a subfolder structure for ideas
 
+# Progress
+![image](screenshots/example-grid-2.png) 
+- todo: will have to fix displaying height
+
+![image](screenshots/example-grid-5.png)
+![image](screenshots/example-grid-7.png)
+
 # Requirements
 * `Node.js` - https://nodejs.org/en/download/
 * `Mozilla Firefox` - https://www.mozilla.org/ro/firefox/all/#product-desktop-release - has less quirks than other browsers
