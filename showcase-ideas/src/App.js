@@ -19,12 +19,12 @@ function App() {
   for(let i=0; i<5; i++) {
     // IMPORTANT: need the raw data instead of <Card /> rendering to be prop-drilled
     let card = {
-      key:i, 
-      title:"Something " + i, 
-      image:"", 
-      url:"", 
-      text:"Randomized text" + i, 
-      tags:""
+      key: i, 
+      title: "Something " + i, 
+      image: logo, 
+      url: "", 
+      text: "Randomized text" + i, 
+      tags: ""
     }
     cards.push(card) 
     // console.log(card)

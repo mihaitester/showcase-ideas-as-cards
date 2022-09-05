@@ -42,8 +42,12 @@ const Card = (props) => {
             {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}
             <div className='card' style={{padding: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
               <div className='title' style={{padding: "10px"}}><b>{props.title}</b></div>
-              <div className='image'><img src={props.image} /></div>
+              {!isShown && (
+                <div className='image'><img src={props.image} /></div>
+              )}
               {isShown && (
+                // todo: use some markdown processor and display the text like rendered instead of plain text
+                // todo: have some auto-scroll speed of the text
                 <div className='text' style={{display: "hidden"}}>{props.text}</div>
               )}
             </div></Fragment>

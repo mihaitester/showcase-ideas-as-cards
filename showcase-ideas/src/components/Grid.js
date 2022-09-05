@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import Card from './Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
-import useWindowDimensions from './useWindowDimensions';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ] - need to nest multiple layers of code and html
 // help: [ https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg ]
