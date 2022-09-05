@@ -39,6 +39,7 @@ const Card = (props) => {
       console.log("height: " + props.height + " width: " + props.width)
         return (
           <Fragment>
+            {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}
             <div className='card' style={{padding: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
               <div className='title' style={{padding: "10px"}}><b>{props.title}</b></div>
               <div className='image'><img src={props.image} /></div>
