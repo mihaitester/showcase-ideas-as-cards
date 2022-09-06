@@ -62,6 +62,7 @@ function App() {
       
         <div>
           {/* help: [ https://stackoverflow.com/questions/39297616/how-to-left-align-the-label-in-a-button ] */}
+          {/* help: [ https://retool.com/blog/building-a-react-slider/ ] - need to replace the input field with a slider - need to cap the slider at a number that generates maximum number of 100px*150px cards */}
           <div style={{textAlign: "left"}}>
             <label>
               Grid width in items:
