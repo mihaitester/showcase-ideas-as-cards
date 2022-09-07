@@ -42,9 +42,9 @@ const processCards = (cards, cols, height, width) => {
             if(i < cards.length) {
                 // row.push(<td><Card key={i} {...cards[i]} height={height/rows} maxHeight={0.9 * height/rows} width={width/cols} maxWidth={0.9* width/cols}/></td>)
                 // todo: ideally get some calculation of the image, create cards that have a 2 * 3 aspect ratio
-                let h = parseInt(aspectRatio * width / cols) //height/rows > width/cols ? height/rows : width/cols
-                let mh = parseInt(aspectRatio * cardSizeReducer * width / cols) //height/rows > width/cols ? cardSizeReducer * height/rows : cardSizeReducer * width/cols
-                row.push(<td key={i}><Card {...cards[i]} height={h} maxHeight={mh} width={parseInt(width / cols)} maxWidth={parseInt(cardSizeReducer * width / cols)}/></td>)
+                let mh = parseInt(aspectRatio * width / cols) //height/rows > width/cols ? height/rows : width/cols
+                let h = parseInt(cardSizeReducer * aspectRatio * width / cols) //height/rows > width/cols ? cardSizeReducer * height/rows : cardSizeReducer * width/cols
+                row.push(<td key={i}><Card {...cards[i]} height={h} maxHeight={mh} width={cardSizeReducer * parseInt(width / cols)} maxWidth={parseInt(width / cols)}/></td>)
                 i += 1;
             }
             else {

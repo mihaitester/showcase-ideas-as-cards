@@ -45,7 +45,8 @@ const Card = (props) => {
           <Fragment>
             {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}
             {/* help: [ https://stackoverflow.com/questions/36284453/react-native-text-going-off-my-screen-refusing-to-wrap-what-to-do ] */}
-            <div className='card' style={{borderStyle: "solid", borderWidth: "1px", borderRadius: "10px", margin: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+            {/* <div className='card' style={{borderStyle: "solid", borderWidth: "1px", borderRadius: "10px", margin: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px" }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}> */}
+            <div className='card' style={{borderStyle: "solid", borderWidth: "1px", borderRadius: "10px", margin: "10px", height: props.height+"px", width: props.width+"px"}} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
               <div className='title' style={{padding: "10px", height: parseInt(0.1 * props.height), width: props.width}}><b>{props.title}</b></div>
               {!isShown && (
                 <div className='image' style={{padding: "10px", height: parseInt(0.9 * props.height), width: props.width}}><img src={props.image} /></div>
