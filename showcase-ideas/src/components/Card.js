@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import log from "../helpers/logger";
 
 // help: [ https://stackoverflow.com/questions/41064718/how-to-create-an-new-instance-of-an-object-in-react ] - precisely what is needed
 // help: [ https://create-react-app.dev/docs/importing-a-component/ ] - fix import
@@ -15,8 +16,10 @@ const Card = (props) => {
 
     // constructor(props) {
         // super(props) // help: [ https://stackoverflow.com/questions/31067368/how-to-extend-a-class-without-having-to-use-super-in-es6 ]
-        console.log("card: " + props) // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
-        console.log("card: " + JSON.stringify(props, null, 2))
+        // help: [ https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do ]
+        log("debug", "card", props)
+        // console.log("card: " + props) 
+        // console.log("card: " + JSON.stringify(props, null, 2))
         // this.state = {
         //     value: null,
         //   }
@@ -36,7 +39,7 @@ const Card = (props) => {
 
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
-      console.log("height: " + props.height + " width: " + props.width)
+      // console.log("height: " + props.height + " width: " + props.width)
         return (
           <Fragment>
             {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}

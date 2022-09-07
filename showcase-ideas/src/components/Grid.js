@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import Card from './Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
-import useWindowDimensions from '../hooks/useWindowDimensions';
+import Card from './Card' // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
+import useWindowDimensions from '../hooks/useWindowDimensions'
+import log from '../helpers/logger'
 
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ] - need to nest multiple layers of code and html
 // help: [ https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg ]
@@ -27,8 +28,10 @@ const processCards = (cards, cols, height, width) => {
     let aspectRatio = 3/2
 
     let render = []
-    let rows = (cards.length / cols) + 1
-    console.log("rows: " + rows)
+    let rows = parseInt(cards.length / cols) + 1
+
+    log("debug", "rows", rows)
+    // console.log("rows: " + rows)
     for(let i=0; i<cards.length;) {
         let row = []
         for(let col=0; col<cols; col++) {

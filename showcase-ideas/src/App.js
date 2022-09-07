@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Card from './components/Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
+// import Card from './components/Card'; // help: [ https://bobbyhadz.com/blog/react-element-type-is-invalid-expected-string-but-got ] - use plain import for Class, use `{}` import for functions
 import Grid from './components/Grid';
-import Slider from './components/Slider';
+// import Slider from './components/Slider';
 
 import useWindowDimensions from './hooks/useWindowDimensions';
+import log from './helpers/logger';
 
 import React, { useState } from 'react';
 // help: [ https://react-bootstrap.github.io/components/cards/ ] - this is one the ways to present this idea, like `Magic the Gathering` cards
@@ -22,7 +23,8 @@ function App() {
   // help: [ https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks ] - actual example of how to use new react features
   const [gridCols, setGridCols] = useState(3);
 
-  console.log("gridCols: " + gridCols)
+  log("debug", "gridCols", gridCols)
+  // console.log("gridCols: " + gridCols)
 
   let cardsNumber = 7
   let defaultCols = 3
@@ -39,16 +41,20 @@ function App() {
       tags: ""
     }
     cards.push(card) 
+    log("debug", "card", card)
     // console.log(card)
     // console.log(JSON.stringify(card, null, 2)) 
   }
-  console.log("App " + cards) // note: why does this display twice
-  console.log("App: " + JSON.stringify(cards, null, 2))
+  // todo: find out why does this display twice ???
+  log("debug", "cards", cards)
+  // console.log("App " + cards) // note: why does this display twice
+  // console.log("App: " + JSON.stringify(cards, null, 2))
 
   const { height, width } = useWindowDimensions()
   const gridColMinWidth = 100
   const sliderMaxValue = parseInt( 0.9 * width/gridColMinWidth )
-  console.log("Slider max: " + sliderMaxValue)
+  log("debug", "sliderMaxValue", sliderMaxValue)
+  // console.log("Slider max: " + sliderMaxValue)
 
   return (
     <div className="App">
