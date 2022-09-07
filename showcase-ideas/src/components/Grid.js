@@ -60,7 +60,8 @@ const Grid = (props) => {
 
     return (
         <table>
-            <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols, height, width)}</div></tbody>
+            {/* <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols, height, width)}</div></tbody> */}
+            <tbody>{processCards(props.items, props.cols, height, width)}</tbody>
         </table>
         
     )
