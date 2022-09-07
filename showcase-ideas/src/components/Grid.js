@@ -22,6 +22,8 @@ import log from '../helpers/logger'
 // help: [ https://stackoverflow.com/questions/60319702/how-to-render-element-in-react-js-from-object-map ]
 // help: [ https://reactjs.org/docs/jsx-in-depth.html ]
 // help: [ https://www.robinwieruch.de/javascript-map-array/ ]
+// help: [ https://stackoverflow.com/questions/36284453/react-native-text-going-off-my-screen-refusing-to-wrap-what-to-do ]
+// help: [ https://www.w3schools.com/css/css_border.asp ] - defining borders to elements using CSS
 const processCards = (cards, cols, height, width) => {
 
     let cardSizeReducer = 0.9
