@@ -39,7 +39,8 @@ const Card = (props) => {
 
     // render() {
       // help: [ https://stackoverflow.com/questions/33766085/how-to-avoid-extra-wrapping-div-in-react ]
-      // console.log("height: " + props.height + " width: " + props.width)
+      log("debug", "height", props.height)
+      log("debug", "width", props.width)
         return (
           <Fragment>
             {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}

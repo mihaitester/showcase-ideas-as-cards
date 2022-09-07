@@ -24,7 +24,6 @@ function App() {
   const [gridCols, setGridCols] = useState(3);
 
   log("debug", "gridCols", gridCols)
-  // console.log("gridCols: " + gridCols)
 
   let cardsNumber = 7
   let defaultCols = 3
@@ -42,19 +41,15 @@ function App() {
     }
     cards.push(card) 
     log("debug", "card", card)
-    // console.log(card)
-    // console.log(JSON.stringify(card, null, 2)) 
   }
-  // todo: find out why does this display twice ???
-  log("debug", "cards", cards)
-  // console.log("App " + cards) // note: why does this display twice
-  // console.log("App: " + JSON.stringify(cards, null, 2))
+  
+  log("debug", "cards", cards) // todo: find out why does this display twice ???
 
   const { height, width } = useWindowDimensions()
   const gridColMinWidth = 100
   const sliderMaxValue = parseInt( 0.9 * width/gridColMinWidth )
+
   log("debug", "sliderMaxValue", sliderMaxValue)
-  // console.log("Slider max: " + sliderMaxValue)
 
   return (
     <div className="App">

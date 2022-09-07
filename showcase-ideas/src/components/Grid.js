@@ -31,7 +31,7 @@ const processCards = (cards, cols, height, width) => {
     let rows = parseInt(cards.length / cols) + 1
 
     log("debug", "rows", rows)
-    // console.log("rows: " + rows)
+
     for(let i=0; i<cards.length;) {
         let row = []
         for(let col=0; col<cols; col++) {
@@ -54,12 +54,10 @@ const processCards = (cards, cols, height, width) => {
 
 const Grid = (props) => {
 
-    let cards = props.items
-    // console.log("cards: " + cards)
-    // console.log("cards: " + JSON.stringify(cards, null, 2))
+    log("debug", "cards", props.items)
 
     const { height, width } = useWindowDimensions();
-    
+
     return (
         <table>
             <tbody><div style={{width:{width}, height:{height}}}>{processCards(props.items, props.cols, height, width)}</div></tbody>
