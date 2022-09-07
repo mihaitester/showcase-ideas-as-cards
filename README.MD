@@ -15,14 +15,19 @@ And there needs to be a simple search bar, and have tags attached to each idea. 
 * including subfolders as cards - ideally avoid heavy database with metadata and references, simply use a subfolder structure for ideas
 
 # Progress
-* previous screenshots
+* older screenshots
 ![image](screenshots/example-grid-2.png)
 ![image](screenshots/example-grid-5.png)
 ![image](screenshots/example-grid-7.png)
 
-* current screeshots
+* previous screenshots
 ![image](screenshots/example-grid-1.png)
 ![image](screenshots/example-grid-17.png)
+
+* current screeshots
+![image](screenshots/example-grid-3.png)
+![image](screenshots/example-grid-9.png)
+
 
 # Requirements
 * `Node.js` - https://nodejs.org/en/download/
