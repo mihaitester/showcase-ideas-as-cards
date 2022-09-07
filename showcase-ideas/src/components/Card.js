@@ -44,16 +44,17 @@ const Card = (props) => {
         return (
           <Fragment>
             {/* help: [ https://stackoverflow.com/questions/29615607/react-svg-max-width ] */}
-            <div className='card' style={{padding: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
-              <div className='title' style={{padding: "10px"}}><b>{props.title}</b></div>
+            {/* help: [ https://stackoverflow.com/questions/36284453/react-native-text-going-off-my-screen-refusing-to-wrap-what-to-do ] */}
+            <div className='card' style={{borderStyle: "solid", borderWidth: "1px", borderRadius: "10px", margin: "10px", height: props.height+"px", maxHeight: props.maxHeight+"px", width: props.width+"px", maxWidth: props.maxWidth+"px", }} onClick={props.src} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+              <div className='title' style={{padding: "10px", height: parseInt(0.1 * props.height), width: props.width}}><b>{props.title}</b></div>
               {!isShown && (
-                <div className='image'><img src={props.image} /></div>
+                <div className='image' style={{padding: "10px", height: parseInt(0.9 * props.height), width: props.width}}><img src={props.image} /></div>
               )}
               {isShown && (
                 // todo: use some markdown processor and display the text like rendered instead of plain text
                 // todo: have some auto-scroll speed of the text
                 // help: [ https://randyperkins2k.medium.com/writing-a-simple-markdown-parser-using-javascript-1f2e9449a558 ] - how to parse markdown
-                <div className='text' style={{display: "hidden"}}>{props.text}</div>
+                <div className='text' style={{padding: "10px", height: parseInt(0.9 * props.height), width: props.width}}>{props.text}</div>
               )}
             </div></Fragment>
           // <Fragment>
