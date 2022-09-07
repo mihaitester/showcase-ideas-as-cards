@@ -29,25 +29,29 @@ const processCards = (cards, cols, height, width) => {
 
     let render = []
     let rows = parseInt(cards.length / cols) + 1
+    let row_key = "00"
 
     log("debug", "rows", rows)
 
-    for(let i=0; i<cards.length;) {
+    for(let i = 0; i < cards.length;) {
         let row = []
-        for(let col=0; col<cols; col++) {
-            if(i<cards.length) {
+        let pad_key = cards.length + 1
+        for(let col = 0; col < cols; col++) {
+            if(i < cards.length) {
                 // row.push(<td><Card key={i} {...cards[i]} height={height/rows} maxHeight={0.9 * height/rows} width={width/cols} maxWidth={0.9* width/cols}/></td>)
                 // todo: ideally get some calculation of the image, create cards that have a 2 * 3 aspect ratio
-                let h = parseInt(aspectRatio * width/cols) //height/rows > width/cols ? height/rows : width/cols
-                let mh = parseInt(aspectRatio * cardSizeReducer * width/cols) //height/rows > width/cols ? cardSizeReducer * height/rows : cardSizeReducer * width/cols
-                row.push(<td><Card key={i} {...cards[i]} height={h} maxHeight={mh} width={parseInt(width/cols)} maxWidth={parseInt(cardSizeReducer * width/cols)}/></td>)
-                i++;
+                let h = parseInt(aspectRatio * width / cols) //height/rows > width/cols ? height/rows : width/cols
+                let mh = parseInt(aspectRatio * cardSizeReducer * width / cols) //height/rows > width/cols ? cardSizeReducer * height/rows : cardSizeReducer * width/cols
+                row.push(<td key={i}><Card {...cards[i]} height={h} maxHeight={mh} width={parseInt(width / cols)} maxWidth={parseInt(cardSizeReducer * width / cols)}/></td>)
+                i += 1;
             }
             else {
-                row.push(<td></td>)
+                row.push(<td key={pad_key}></td>)
+                pad_key += 1
             }
         }
-        render.push(<tr>{row}</tr>)
+        render.push(<tr key={row_key}>{row}</tr>)
+        row_key = "0" + i
     }
     return render
 }

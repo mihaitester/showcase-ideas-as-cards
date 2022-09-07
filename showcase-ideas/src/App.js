@@ -69,14 +69,15 @@ function App() {
           Learn React
         </a> */}
         {/* help: [ https://www.w3schools.com/howto/howto_js_rangeslider.asp ] */}
-        <div style={{align: "center", maxHeight: 0.9 * {height}, maxWidth: 0.9 * {width}}}>
+        <div>
+        {/* <div style={{align: "center", maxHeight: parseInt(0.9 * {height}), maxWidth: parseInt(0.9 * {width})}}> */}
           {/* <Slider/> */}
           {/* help: [ https://stackoverflow.com/questions/39297616/how-to-left-align-the-label-in-a-button ] */}
           <div style={{position: "fixed", top:"0", left:"0", align: "top", textAlign: "left"}}>
             <label>
               Grid width in items:
             </label>
-            <input type="range" min="1" max={sliderMaxValue} defaultValue={gridCols} class="slider" id="gridCols" name="gridCols" onChange={(e) => e.target.value > 0 ? setGridCols(e.target.value) : defaultCols}/>
+            <input type="range" min="1" max={sliderMaxValue} defaultValue={gridCols} className="slider" id="gridCols" name="gridCols" onChange={(e) => e.target.value > 0 ? setGridCols(e.target.value) : defaultCols}/>
               {/* help: [ https://stackoverflow.com/questions/72630306/how-to-set-up-default-value-if-props-is-empty-using-reactjs ] - if putting input 0, then app breaks */}
               {/* <input type="text" name="gridCols" onChange={(e) => e.target.value > 0 ? setGridCols(e.target.value) : defaultCols}/> */}
             <input type="text" style={{height: "20px", width: "20px"}} value={gridCols} disabled />
